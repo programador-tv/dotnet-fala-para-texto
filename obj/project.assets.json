@@ -708,11 +708,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/marcosguilhermedornelesstaub/Documents/boca-suja-speech/boca-suja-speech.csproj",
+      "projectUniqueName": "/Users/marcosguilhermedornelesstaub/Documents/dotnet-fala-para-texto/boca-suja-speech.csproj",
       "projectName": "boca-suja-speech",
-      "projectPath": "/Users/marcosguilhermedornelesstaub/Documents/boca-suja-speech/boca-suja-speech.csproj",
+      "projectPath": "/Users/marcosguilhermedornelesstaub/Documents/dotnet-fala-para-texto/boca-suja-speech.csproj",
       "packagesPath": "/Users/marcosguilhermedornelesstaub/.nuget/packages/",
-      "outputPath": "/Users/marcosguilhermedornelesstaub/Documents/boca-suja-speech/obj/",
+      "outputPath": "/Users/marcosguilhermedornelesstaub/Documents/dotnet-fala-para-texto/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/marcosguilhermedornelesstaub/.nuget/NuGet/NuGet.Config"
