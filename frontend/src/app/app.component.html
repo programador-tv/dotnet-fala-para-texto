@@ -13,5 +13,6 @@
 <div *ngIf="clickouPararGravacao && showConsole">
   <audio [src]="audioUrl" controls></audio>
   <button (click)="playRecordedAudio()">Reproduzir Áudio</button>
+  <button (click)="sendAudio()">Enviar</button>
 </div>
 

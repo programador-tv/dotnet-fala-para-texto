@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -14,6 +15,9 @@ export class AppComponent {
   audioUrl: string | undefined;
   showConsole: boolean = false;
   stoppedRecord:boolean = false;
+  formData = new FormData();
+
+  constructor(private http : HttpClient){}
 
   startRecording() {
     console.log("Gravando")
@@ -31,7 +35,8 @@ export class AppComponent {
         };
 
         this.mediaRecorder.onstop = () => {
-          const audioBlob = new Blob(this.recordedChunks, { type: 'audio/webm' });
+          const audioBlob = new Blob(this.recordedChunks, { type: 'audio/wav' });
+          this.formData.append('audioFile', audioBlob, 'recorded_audio.wav'); 
           this.audioUrl = URL.createObjectURL(audioBlob);
           this.audioRecorded = true;
         
@@ -59,10 +64,11 @@ export class AppComponent {
     this.audioRecorded = true;
     //Mostra o reprodutor
     this.showConsole = true;
-    console.log("teste")
+    
   }
 
   sendAudio() {
+    return this.http.post("http://localhost:5076/",this.formData).subscribe();
   }
 
   playRecordedAudio() {
