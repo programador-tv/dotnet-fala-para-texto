@@ -14,7 +14,7 @@ app.MapPost("/", async (HttpContext httpContext) => {
             await httpContext.Response.WriteAsync("Nenhum arquivo foi enviado.");
             return;
         }
-        var caminhoDestino = Directory.GetCurrentDirectory() +"/audios/"+ arquivo.FileName;
+        var caminhoDestino = Directory.GetCurrentDirectory() + "/audios/" + Guid.NewGuid() + ".wav";
         using var stream = File.Create(caminhoDestino);
         await arquivo.CopyToAsync(stream);
 

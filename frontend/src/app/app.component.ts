@@ -68,7 +68,15 @@ export class AppComponent {
   }
 
   sendAudio() {
-    return this.http.post("http://localhost:5076/",this.formData).subscribe();
+    const formData = new FormData();
+
+    const audioBlob = new Blob(this.recordedChunks, { type: 'audio/wav' });
+    formData.append('audioFile', audioBlob, 'recorded_audio.wav');
+
+    return this.http.post("http://localhost:5076/", formData).subscribe(() => {
+      // Limpa a variável recordedChunks após o envio
+      this.recordedChunks = [];
+    });
   }
 
   playRecordedAudio() {
