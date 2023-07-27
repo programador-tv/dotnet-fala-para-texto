@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { respostaServidor } from 'src/Interfaces/interface';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,7 @@ export class AppComponent {
   showConsole: boolean = false;
   stoppedRecord:boolean = false;
   formData = new FormData();
+  text?:string;
 
   constructor(private http : HttpClient){}
 
@@ -35,11 +37,10 @@ export class AppComponent {
         };
 
         this.mediaRecorder.onstop = () => {
-          const audioBlob = new Blob(this.recordedChunks, { type: 'audio/wav' });
-          this.formData.append('audioFile', audioBlob, 'recorded_audio.wav'); 
+          const audioBlob = new Blob(this.recordedChunks, { type: 'audio/webm' });
+          this.formData.append('audioFile', audioBlob, 'recorded_audio.webm'); 
           this.audioUrl = URL.createObjectURL(audioBlob);
           this.audioRecorded = true;
-        
         };
 
         this.mediaRecorder.start();
@@ -70,12 +71,14 @@ export class AppComponent {
   sendAudio() {
     const formData = new FormData();
 
-    const audioBlob = new Blob(this.recordedChunks, { type: 'audio/wav' });
-    formData.append('audioFile', audioBlob, 'recorded_audio.wav');
+    const audioBlob = new Blob(this.recordedChunks, { type: 'audio/webm' });
+    formData.append('audioFile', audioBlob, 'recorded_audio.webm');
 
-    return this.http.post("http://localhost:5076/", formData).subscribe(() => {
+    return this.http.post("http://localhost:5076/", formData).subscribe((data:respostaServidor) => {
       // Limpa a variável recordedChunks após o envio
-      this.recordedChunks = [];
+      this.text = data.text;
+      console.log(data);
+      this.recordedChunks=[];
     });
   }
 
