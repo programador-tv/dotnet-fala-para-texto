@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{0225A01D-02DA-4185-BC9B-90F9EF3A0475}|https">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Apps/FalaParaTexto.API/Program.cs">
+    <Files>
+      <File FileName="Apps/FalaParaTexto.API/Program.cs" Line="43" Column="47" />
+      <File FileName="Apps/FalaParaTexto.Core/AudioFileManager.cs" Line="13" Column="64" />
+      <File FileName="Apps/FalaParaTexto.Core/AzureSpeechToTextService.cs" Line="13" Column="35" />
+      <File FileName="Apps/FalaParaTexto.Core/AudioProcessManager.cs" Line="17" Column="98" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="dotnet-fala-para-texto" expanded="True">
+            <Node name="Apps" expanded="True">
+              <Node name="FalaParaTexto.API" expanded="True">
+                <Node name="Dependencies" expanded="True" />
+                <Node name="Program.cs" selected="True" />
+              </Node>
+              <Node name="FalaParaTexto.Core" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Apps.FalaParaTexto.API PreferredExecutionTarget="/Applications/Arc.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>
