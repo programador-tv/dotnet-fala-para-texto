@@ -3,4 +3,6 @@
 **/bin/
 **/obj/
 **/audios/
-.DS_Store
+**/.DS_Store
+**/.vs
+**/.vscode
