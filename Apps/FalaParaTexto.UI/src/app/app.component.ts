@@ -74,7 +74,7 @@ export class AppComponent {
     const audioBlob = new Blob(this.recordedChunks, { type: 'audio/webm' });
     formData.append('audioFile', audioBlob, 'recorded_audio.webm');
 
-    return this.http.post("http://localhost:5076/", formData).subscribe((data:respostaServidor) => {
+    return this.http.post("http://localhost/", formData).subscribe((data:respostaServidor) => {
       // Limpa a variável recordedChunks após o envio
       this.text = data.text;
       console.log(data);
