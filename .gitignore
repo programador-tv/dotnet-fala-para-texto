@@ -1,3 +1,8 @@
-frontend/node_modules/
-backend/bin/
-backend/obj/
+**/node_modules/
+**/.angular/
+**/bin/
+**/obj/
+**/audios/
+**/.DS_Store
+**/.vs
+**/.vscode
