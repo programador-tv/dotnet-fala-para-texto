@@ -69,7 +69,7 @@ export class AppComponent {
       formData.append("audioFile", audioBlob, "recorded_audio.webm");
   
       return this.http
-        .post("http://localhost:5076/", formData)
+        .post("http://localhost/", formData)
         .subscribe((data: respostaServidor) => {
           this.transcribedText = data.text;
           this.recordedChunks = [];
