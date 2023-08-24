@@ -1,0 +1,70 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.top-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+}
+
+/* Posicionamento do topo direito */
+.top-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+}
+
+.content {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.microphone-button,
+.gravando {
+  border: none;
+  border-radius: 50%;
+  padding: 5px; /* Adjust padding to control image size */
+  color: white;
+  background-color: #f5f5f5;
+  margin: 1px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.microphone-button img, .gravando img{
+  height: 70px;
+  width: 70px;
+}
+
+.microphone-button:hover {
+  background-color: #2980b9;
+}
+.gravando:hover {
+  background-color: #f37676;
+}
+
+.converted-text {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  margin-top: -200px; 
+}
+
+.converted-text img{
+  height: 30px;
+  width: 20px;
+  background: none;
+}

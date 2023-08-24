@@ -1,22 +1,38 @@
+<div class="top-left">
+  <h1>Fala para texto</h1>
+</div>
+
+<div class="top-right">
+  <h1>🗣️ -> 🔤</h1>
+</div>
+
 <!-- Se não está gravando, mostra o botão startRecording -->
-<div *ngIf="!isRecording">
-  <button (click)="startRecording()">Iniciar Gravação</button>
+<div class="container">
+  <div class="content">
+    <div *ngIf="!isRecording">
+      <label for="audioInput">
+        <h1>Conversão de áudio para texto</h1>
+        <button class="microphone-button" (click)="startRecording()">
+          <img src="assets/microfone (2).png" alt="" />
+        </button>
+      </label>
+    </div>
+    <!-- Se está gravando, mostra o texto gravando e o botão para parar de gravar -->
+    <div *ngIf="isRecording">
+      <p>Gravando...</p>
+      <button class="gravando" (click)="stopRecording()"><img src="assets/mudo.png" alt=""></button>
+    </div>
+    
+    
+    <!-- Se apertou pra interromper e o console foi declarado tru, exibe o console e o botão que chama o método para dar play no audio -->
+    <div *ngIf="audioRecorded">
+      <button (click)="sendAudio()">
+        Enviar
+      </button>
+    </div>
+    
+    <div>
+      <h1>{{text}}</h1>
+    </div>
+  </div>
 </div>
-<!-- Se está gravando, mostra o texto gravando e o botão para parar de gravar -->
-<div *ngIf="isRecording">
-  <p>Gravando...</p>
-  <button (click)="stopRecording()">Interromper Gravação</button>
-</div>
-
-
-<!-- Se apertou pra interromper e o console foi declarado tru, exibe o console e o botão que chama o método para dar play no audio -->
-<div *ngIf="clickouPararGravacao && showConsole">
-  <audio [src]="audioUrl" controls></audio>
-  <button (click)="playRecordedAudio()">Reproduzir Áudio</button>
-  <button (click)="sendAudio()">Enviar</button>
-</div>
-
-<div>
-  <h1>{{text}}</h1>
-</div>
-
