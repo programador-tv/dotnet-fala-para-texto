@@ -11,11 +11,10 @@ export class AppComponent {
   mediaRecorder: any;
   recordedChunks: any[] = [];
   isRecording = false;
-  audioRecorded = false;
+  recordedAudio = false;
   audioUrl: string | undefined;
-  stoppedRecord: boolean = false;
   formData = new FormData();
-  text?: string;
+  transcribedText?: string;
 
   constructor(private http: HttpClient) {}
 
@@ -43,7 +42,7 @@ export class AppComponent {
           });
           this.formData.append("audioFile", audioBlob, "recorded_audio.webm");
           this.audioUrl = URL.createObjectURL(audioBlob);
-          this.audioRecorded = true;
+          this.recordedAudio = true;
         };
 
         this.mediaRecorder.start();
@@ -57,15 +56,8 @@ export class AppComponent {
     if (this.isRecording) {
       this.mediaRecorder.stop();
       this.isRecording = false;
-      this.stoppedRecord = true;
-      this.audioRecorded = true;
-
+      this.recordedAudio = true;
     }
-  }
-
-  clickouPararGravacao() {
-    this.audioRecorded = true;
-    //Mostra o reprodutor
   }
 
   sendAudio() {
@@ -79,9 +71,7 @@ export class AppComponent {
       return this.http
         .post("http://localhost:5076/", formData)
         .subscribe((data: respostaServidor) => {
-          // Limpa a variável recordedChunks após o envio
-          this.text = data.text;
-          console.log(data);
+          this.transcribedText = data.text;
           this.recordedChunks = [];
         });
     } catch (e) {
@@ -89,5 +79,24 @@ export class AppComponent {
     }
   }
 
-
+  copyTranscribedText() {
+    const copiedTranscribedText = document.getElementById('textoParaCopiar');
+    
+    if (copiedTranscribedText) {
+      const selectionRange = document.createRange();
+      selectionRange.selectNodeContents(copiedTranscribedText);
+    
+      const select = window.getSelection();
+      if (select) { 
+        select.removeAllRanges();
+        select.addRange(selectionRange);
+    
+        document.execCommand('copy');
+    
+        select.removeAllRanges();
+    
+        alert('Texto copiado!');
+      }
+    }
+  }
 }

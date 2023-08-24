@@ -6,7 +6,6 @@
   <h1>🗣️ -> 🔤</h1>
 </div>
 
-<!-- Se não está gravando, mostra o botão startRecording -->
 <div class="container">
   <div class="content">
     <div *ngIf="!isRecording">
@@ -17,22 +16,21 @@
         </button>
       </label>
     </div>
-    <!-- Se está gravando, mostra o texto gravando e o botão para parar de gravar -->
     <div *ngIf="isRecording">
-      <p>Gravando...</p>
-      <button class="gravando" (click)="stopRecording()"><img src="assets/mudo.png" alt=""></button>
-    </div>
-    
-    
-    <!-- Se apertou pra interromper e o console foi declarado tru, exibe o console e o botão que chama o método para dar play no audio -->
-    <div *ngIf="audioRecorded">
-      <button (click)="sendAudio()">
-        Enviar
+      <h1>Gravando...</h1>
+      <button class="gravando" (click)="stopRecording()">
+        <img src="assets/mudo.png" alt="" />
       </button>
     </div>
-    
-    <div>
-      <h1>{{text}}</h1>
+
+    <div *ngIf="recordedAudio">
+      <button (click)="sendAudio()">Enviar</button>
     </div>
   </div>
+</div>
+<div *ngIf="transcribedText" class="converted-text">
+  <h1 id="textoParaCopiar">{{ transcribedText }}</h1>
+  <button (click)="copyTranscribedText()">
+    <img src="assets/clipboard.png" alt="" />
+  </button>
 </div>

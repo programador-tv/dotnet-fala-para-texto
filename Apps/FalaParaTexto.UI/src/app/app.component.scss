@@ -12,7 +12,6 @@
   padding: 10px;
 }
 
-/* Posicionamento do topo direito */
 .top-right {
   position: absolute;
   top: 0;
@@ -33,7 +32,7 @@
 .gravando {
   border: none;
   border-radius: 50%;
-  padding: 5px; /* Adjust padding to control image size */
+  padding: 5px; 
   color: white;
   background-color: #f5f5f5;
   margin: 1px;
@@ -41,7 +40,8 @@
   transition: background-color 0.3s ease;
 }
 
-.microphone-button img, .gravando img{
+.microphone-button img,
+.gravando img {
   height: 70px;
   width: 70px;
 }
@@ -60,11 +60,11 @@
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: white;
-  margin-top: -200px; 
+  margin-top: -200px;
 }
 
-.converted-text img{
-  height: 30px;
+.converted-text img {
+  height: 20px;
   width: 20px;
   background: none;
 }
